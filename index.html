@@ -1,0 +1,796 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <script
+    type="text/javascript">(window.NREUM || (NREUM = {})).loader_config = { licenseKey: "7ef148dbc4", applicationID: "26359159" }; window.NREUM || (NREUM = {}), __nr_require = function (t, e, n) { function r(n) { if (!e[n]) { var i = e[n] = { exports: {} }; t[n][0].call(i.exports, function (e) { var i = t[n][1][e]; return r(i || e) }, i, i.exports) } return e[n].exports } if ("function" == typeof __nr_require) return __nr_require; for (var i = 0; i < n.length; i++)r(n[i]); return r }({ 1: [function (t, e, n) { function r() { } function i(t, e, n) { return function () { return o(t, [u.now()].concat(f(arguments)), e ? null : this, n), e ? void 0 : this } } var o = t("handle"), a = t(8), f = t(9), c = t("ee").get("tracer"), u = t("loader"), s = NREUM; "undefined" == typeof window.newrelic && (newrelic = s); var d = ["setPageViewName", "setCustomAttribute", "setErrorHandler", "finished", "addToTrace", "inlineHit", "addRelease"], p = "api-", l = p + "ixn-"; a(d, function (t, e) { s[e] = i(p + e, !0, "api") }), s.addPageAction = i(p + "addPageAction", !0), s.setCurrentRouteName = i(p + "routeName", !0), e.exports = newrelic, s.interaction = function () { return (new r).get() }; var m = r.prototype = { createTracer: function (t, e) { var n = {}, r = this, i = "function" == typeof e; return o(l + "tracer", [u.now(), t, n], r), function () { if (c.emit((i ? "" : "no-") + "fn-start", [u.now(), r, i], n), i) try { return e.apply(this, arguments) } catch (t) { throw c.emit("fn-err", [arguments, this, t], n), t } finally { c.emit("fn-end", [u.now()], n) } } } }; a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","), function (t, e) { m[e] = i(l + e) }), newrelic.noticeError = function (t, e) { "string" == typeof t && (t = new Error(t)), o("err", [t, u.now(), !1, e]) } }, {}], 2: [function (t, e, n) { function r(t) { if (NREUM.init) { for (var e = NREUM.init, n = t.split("."), r = 0; r < n.length - 1; r++)if (e = e[n[r]], "object" != typeof e) return; return e = e[n[n.length - 1]] } } e.exports = { getConfiguration: r } }, {}], 3: [function (t, e, n) { function r() { return f.exists && performance.now ? Math.round(performance.now()) : (o = Math.max((new Date).getTime(), o)) - a } function i() { return o } var o = (new Date).getTime(), a = o, f = t(10); e.exports = r, e.exports.offset = a, e.exports.getLastTimestamp = i }, {}], 4: [function (t, e, n) { function r(t) { return !(!t || !t.protocol || "file:" === t.protocol) } e.exports = r }, {}], 5: [function (t, e, n) { function r(t, e) { var n = t.getEntries(); n.forEach(function (t) { "first-paint" === t.name ? d("timing", ["fp", Math.floor(t.startTime)]) : "first-contentful-paint" === t.name && d("timing", ["fcp", Math.floor(t.startTime)]) }) } function i(t, e) { var n = t.getEntries(); n.length > 0 && d("lcp", [n[n.length - 1]]) } function o(t) { t.getEntries().forEach(function (t) { t.hadRecentInput || d("cls", [t]) }) } function a(t) { if (t instanceof m && !g) { var e = Math.round(t.timeStamp), n = { type: t.type }; e <= p.now() ? n.fid = p.now() - e : e > p.offset && e <= Date.now() ? (e -= p.offset, n.fid = p.now() - e) : e = p.now(), g = !0, d("timing", ["fi", e, n]) } } function f(t) { d("pageHide", [p.now(), t]) } if (!("init" in NREUM && "page_view_timing" in NREUM.init && "enabled" in NREUM.init.page_view_timing && NREUM.init.page_view_timing.enabled === !1)) { var c, u, s, d = t("handle"), p = t("loader"), l = t(7), m = NREUM.o.EV; if ("PerformanceObserver" in window && "function" == typeof window.PerformanceObserver) { c = new PerformanceObserver(r); try { c.observe({ entryTypes: ["paint"] }) } catch (v) { } u = new PerformanceObserver(i); try { u.observe({ entryTypes: ["largest-contentful-paint"] }) } catch (v) { } s = new PerformanceObserver(o); try { s.observe({ type: "layout-shift", buffered: !0 }) } catch (v) { } } if ("addEventListener" in document) { var g = !1, h = ["click", "keydown", "mousedown", "pointerdown", "touchstart"]; h.forEach(function (t) { document.addEventListener(t, a, !1) }) } l(f) } }, {}], 6: [function (t, e, n) { function r(t, e) { if (!i) return !1; if (t !== i) return !1; if (!e) return !0; if (!o) return !1; for (var n = o.split("."), r = e.split("."), a = 0; a < r.length; a++)if (r[a] !== n[a]) return !1; return !0 } var i = null, o = null, a = /Version\/(\S+)\s+Safari/; if (navigator.userAgent) { var f = navigator.userAgent, c = f.match(a); c && f.indexOf("Chrome") === -1 && f.indexOf("Chromium") === -1 && (i = "Safari", o = c[1]) } e.exports = { agent: i, version: o, match: r } }, {}], 7: [function (t, e, n) { function r(t) { function e() { t(a && document[a] ? document[a] : document[i] ? "hidden" : "visible") } "addEventListener" in document && o && document.addEventListener(o, e, !1) } e.exports = r; var i, o, a; "undefined" != typeof document.hidden ? (i = "hidden", o = "visibilitychange", a = "visibilityState") : "undefined" != typeof document.msHidden ? (i = "msHidden", o = "msvisibilitychange") : "undefined" != typeof document.webkitHidden && (i = "webkitHidden", o = "webkitvisibilitychange", a = "webkitVisibilityState") }, {}], 8: [function (t, e, n) { function r(t, e) { var n = [], r = "", o = 0; for (r in t) i.call(t, r) && (n[o] = e(r, t[r]), o += 1); return n } var i = Object.prototype.hasOwnProperty; e.exports = r }, {}], 9: [function (t, e, n) { function r(t, e, n) { e || (e = 0), "undefined" == typeof n && (n = t ? t.length : 0); for (var r = -1, i = n - e || 0, o = Array(i < 0 ? 0 : i); ++r < i;)o[r] = t[e + r]; return o } e.exports = r }, {}], 10: [function (t, e, n) { e.exports = { exists: "undefined" != typeof window.performance && window.performance.timing && "undefined" != typeof window.performance.timing.navigationStart } }, {}], ee: [function (t, e, n) { function r() { } function i(t) { function e(t) { return t && t instanceof r ? t : t ? u(t, c, a) : a() } function n(n, r, i, o, a) { if (a !== !1 && (a = !0), !l.aborted || o) { t && a && t(n, r, i); for (var f = e(i), c = v(n), u = c.length, s = 0; s < u; s++)c[s].apply(f, r); var p = d[w[n]]; return p && p.push([b, n, r, f]), f } } function o(t, e) { y[t] = v(t).concat(e) } function m(t, e) { var n = y[t]; if (n) for (var r = 0; r < n.length; r++)n[r] === e && n.splice(r, 1) } function v(t) { return y[t] || [] } function g(t) { return p[t] = p[t] || i(n) } function h(t, e) { l.aborted || s(t, function (t, n) { e = e || "feature", w[n] = e, e in d || (d[e] = []) }) } var y = {}, w = {}, b = { on: o, addEventListener: o, removeEventListener: m, emit: n, get: g, listeners: v, context: e, buffer: h, abort: f, aborted: !1 }; return b } function o(t) { return u(t, c, a) } function a() { return new r } function f() { (d.api || d.feature) && (l.aborted = !0, d = l.backlog = {}) } var c = "nr@context", u = t("gos"), s = t(8), d = {}, p = {}, l = e.exports = i(); e.exports.getOrSetContext = o, l.backlog = d }, {}], gos: [function (t, e, n) { function r(t, e, n) { if (i.call(t, e)) return t[e]; var r = n(); if (Object.defineProperty && Object.keys) try { return Object.defineProperty(t, e, { value: r, writable: !0, enumerable: !1 }), r } catch (o) { } return t[e] = r, r } var i = Object.prototype.hasOwnProperty; e.exports = r }, {}], handle: [function (t, e, n) { function r(t, e, n, r) { i.buffer([t], r), i.emit(t, e, n) } var i = t("ee").get("handle"); e.exports = r, r.ee = i }, {}], id: [function (t, e, n) { function r(t) { var e = typeof t; return !t || "object" !== e && "function" !== e ? -1 : t === window ? 0 : a(t, o, function () { return i++ }) } var i = 1, o = "nr@id", a = t("gos"); e.exports = r }, {}], loader: [function (t, e, n) { function r() { if (!R++) { var t = M.info = NREUM.info, e = v.getElementsByTagName("script")[0]; if (setTimeout(u.abort, 3e4), !(t && t.licenseKey && t.applicationID && e)) return u.abort(); c(E, function (e, n) { t[e] || (t[e] = n) }); var n = a(); f("mark", ["onload", n + M.offset], null, "api"), f("timing", ["load", n]); var r = v.createElement("script"); 0 === t.agent.indexOf("http://") || 0 === t.agent.indexOf("https://") ? r.src = t.agent : r.src = l + "://" + t.agent, e.parentNode.insertBefore(r, e) } } function i() { "complete" === v.readyState && o() } function o() { f("mark", ["domContent", a() + M.offset], null, "api") } var a = t(3), f = t("handle"), c = t(8), u = t("ee"), s = t(6), d = t(4), p = t(2), l = p.getConfiguration("ssl") === !1 ? "http" : "https", m = window, v = m.document, g = "addEventListener", h = "attachEvent", y = m.XMLHttpRequest, w = y && y.prototype, b = !d(m.location); NREUM.o = { ST: setTimeout, SI: m.setImmediate, CT: clearTimeout, XHR: y, REQ: m.Request, EV: m.Event, PR: m.Promise, MO: m.MutationObserver }; var x = "" + location, E = { beacon: "bam.nr-data.net", errorBeacon: "bam.nr-data.net", agent: "js-agent.newrelic.com/nr-1209.min.js" }, O = y && w && w[g] && !/CriOS/.test(navigator.userAgent), M = e.exports = { offset: a.getLastTimestamp(), now: a, origin: x, features: {}, xhrWrappable: O, userAgent: s, disabled: b }; if (!b) { t(1), t(5), v[g] ? (v[g]("DOMContentLoaded", o, !1), m[g]("load", r, !1)) : (v[h]("onreadystatechange", i), m[h]("onload", r)), f("mark", ["firstbyte", a.getLastTimestamp()], null, "api"); var R = 0 } }, {}], "wrap-function": [function (t, e, n) { function r(t, e) { function n(e, n, r, c, u) { function nrWrapper() { var o, a, s, p; try { a = this, o = d(arguments), s = "function" == typeof r ? r(o, a) : r || {} } catch (l) { i([l, "", [o, a, c], s], t) } f(n + "start", [o, a, c], s, u); try { return p = e.apply(a, o) } catch (m) { throw f(n + "err", [o, a, m], s, u), m } finally { f(n + "end", [o, a, p], s, u) } } return a(e) ? e : (n || (n = ""), nrWrapper[p] = e, o(e, nrWrapper, t), nrWrapper) } function r(t, e, r, i, o) { r || (r = ""); var f, c, u, s = "-" === r.charAt(0); for (u = 0; u < e.length; u++)c = e[u], f = t[c], a(f) || (t[c] = n(f, s ? c + r : r, i, c, o)) } function f(n, r, o, a) { if (!m || e) { var f = m; m = !0; try { t.emit(n, r, o, e, a) } catch (c) { i([c, n, r, o], t) } m = f } } return t || (t = s), n.inPlace = r, n.flag = p, n } function i(t, e) { e || (e = s); try { e.emit("internal-error", t) } catch (n) { } } function o(t, e, n) { if (Object.defineProperty && Object.keys) try { var r = Object.keys(t); return r.forEach(function (n) { Object.defineProperty(e, n, { get: function () { return t[n] }, set: function (e) { return t[n] = e, e } }) }), e } catch (o) { i([o], n) } for (var a in t) l.call(t, a) && (e[a] = t[a]); return e } function a(t) { return !(t && t instanceof Function && t.apply && !t[p]) } function f(t, e) { var n = e(t); return n[p] = t, o(t, n, s), n } function c(t, e, n) { var r = t[e]; t[e] = f(r, n) } function u() { for (var t = arguments.length, e = new Array(t), n = 0; n < t; ++n)e[n] = arguments[n]; return e } var s = t("ee"), d = t(9), p = "nr@original", l = Object.prototype.hasOwnProperty, m = !1; e.exports = r, e.exports.wrapFunction = f, e.exports.wrapInPlace = c, e.exports.argsToArray = u }, {}] }, {}, ["loader"]);</script>
+  <title>Pasión Mortal, inventario de una tragedia - El País Cali</title>
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Pasión Mortal, inventario de una tragedia - El País Cali">
+  <meta property="og:description"
+    content="En los últimos 12 años, 149 hinchas fueron asesinados en Colombia por llevar la camiseta de un equipo de fútbol. La hinchada del América es la que acumula más muertes.">
+  <meta property="og:url"
+    content="https://www.elpais.com.co/especiales/pasion-mortal-hinchas-futbol-asesinados-colombia/">
+  <meta property="og:image"
+    content="https://www.elpais.com.co/especiales/pasion-mortal-hinchas-futbol-asesinados-colombia/cover.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@elpaiscali">
+  <meta name="twitter:title" content="Pasión Mortal, inventario de una tragedia - El País Cali">
+  <meta name="twitter:description"
+    content="En los últimos 12 años, 149 hinchas fueron asesinados en Colombia por llevar la camiseta de un equipo de fútbol. La hinchada del América es la que acumula más muertes.">
+  <meta name="twitter:image"
+    content="https://www.elpais.com.co/especiales/pasion-mortal-hinchas-futbol-asesinados-colombia/cover.jpg">
+  <meta name="twitter:image:alt" content="Caza de tiburones en Malpelo, Valle del Cauca">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery.min.js"></script>
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5158970-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-5158970-1');
+  </script>
+  <!-- Fin código Analytics-->
+
+  <!-- Cxense fucnctions begin -->
+
+  <script>
+    function createCookie(name, value, days) { if (days) { var date = new Date(); date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); var expires = ";expires=" + date.toGMTString(); } else var expires = ""; document.cookie = name + "=" + value + expires + ";path=/"; } function readCookie(name) { var nameEQ = name + "="; var ca = document.cookie.split(';'); for (var i = 0; i < ca.length; i++) { var c = ca[i]; while (c.charAt(0) == ' ') c = c.substring(1, c.length); if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length); } return null; } function eraseCookie(name) { createCookie(name, "", -1); }
+  </script>
+
+  <!-- Cxense functions end -->
+
+  <!-- Cxense script begin -->
+  <script src="//cdn.cxense.com/cx.js"></script>
+
+  <script>
+    var user_id = readCookie('elpaisuser'); if (user_id == null) user_id = 0; var cX = cX || {}; cX.callQueue = cX.callQueue || []; cX.callQueue.push(['setSiteId', '1136174228988350311']); var CX_SEGMENTS = cX.getUserSegmentIds({ persistedQueryId: '7670f74049bb36956ca0517ea5533925680d090a' }); CX_SEGMENTS = CX_SEGMENTS.concat(cX.getUserSegmentIds({ persistedQueryId: 'D3a663c900fc4fb0f117a58a14bfa2ab6e5ef457' })); if (typeof user_id !== "undefined" && user_id != 0) { cX.callQueue.push(['addExternalId', { 'id': user_id, 'type': 'pep' }]); } cX.callQueue.push(['invoke', function () { var cx_seg = ''; cx_seg = CX_SEGMENTS.join('|'); console.log(cx_seg); createCookie("cxSegmentos", cx_seg, 180); }]); cX.callQueue.push(['sendPageViewEvent']);
+
+  </script>
+
+  <!-- Cxense script end -->
+
+
+
+
+</head>
+
+<body>
+  <div id="contenedor_carga">
+    <div class="carga"></div>
+  </div>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v8.0&appId=583822708333652&autoLogAppEvents=1"
+    nonce="NAPMO94e"></script>
+
+  <nav class="navbar barra">
+    <a class="navbar-brand" href="https://elpais.com.co">
+      <img src="images/logo-pais-blanco-marco.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      Especiales
+    </a>
+    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+      aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon  pt-1 text-white"><i class="fas fa-bars"></i></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+      <div class="mainmenu py-2 text-center mb-2">
+        <ul>
+          <li>
+            <a href="index.php#mapa"><img src="images/logo.png" alt="" class="img-fluid col-8 col-md-2"></a>
+          </li>
+          <li>
+            <a href="index.php#mapa">Los que alientan desde el cielo</a>
+          </li>
+          <li>
+            <a href="index.php#reportaje">Pasión mortal</a>
+          </li>
+          <li>
+            <a href="index.php#midroga">"Mi droga sos vos"</a>
+          </li>
+          <li>
+            <a href="delgada-linea-barras-bandas-pasion-mortal.php">La delgada línea entre las barras y las bandas</a>
+          </li>
+          <li>
+            <a href="barra-brava-problema-social-colombia.php">“La barra refleja los problemas sociales del país”</a>
+          </li>
+        </ul>
+      </div>
+      <p class="text-center col-12 text-white mb-2">Comparte este especial</p>
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item active">
+          <a class="nav-link fb-xfbml-parse-ignore" target="_blank"
+            href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.elpais.com.co%2Fespeciales%2Fpasion-mortal-hinchas-futbol-asesinados-colombia%2F&amp;src=sdkpreparse">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light"
+            href="https://twitter.com/share?url=https://www.elpais.com.co/especiales/pasion-mortal-hinchas-futbol-asesinados-colombia/&amp;text= Pasión Mortal, inventario de una tragedia - @ElPaisCali"
+            target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+            href="whatsapp://send?text=Pasión Mortal, inventario de una tragedia - El País Cali https://www.elpais.com.co/especiales/pasion-mortal-hinchas-futbol-asesinados-colombia/"
+            data-action="share/whatsapp/share" target="_blank">
+            <i class="fab fa-whatsapp"></i></a>
+        </li>
+      </ul>
+
+    </div>
+
+  </nav>
+  <header class="h-100">
+    <div class="overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+      <source src="video/intro.mp4" type="video/mp4">
+    </video>
+
+    <div class="d-flex flex-wrap text-center logo justify-content-md-center blur">
+      <div class="col-12 col-md-8 gradient align-self-end">
+        <h1 class="text-hide col-12 mb-md-2"> <img src="images/logo.png" alt="" class="col-md-8 col-12"> Pasión mortal:
+          inventario de una tragedia</h1>
+        <p class="col-12 col-md-10 offset-md-1 intro">Durante los últimos doce años, 149 personas fueron asesinadas en
+          el país por llevar la camiseta de un equipo de fútbol. La hinchada del América es la que acumula más muertes.
+          Una quinta parte de todas las víctimas eran menores de edad. Inventario de una tragedia que no existe en los
+          conteos policiales.</p>
+        <a href="#mapa" class="arrow" role="button" aria-pressed="true"><i class="fas fa-chevron-down"></i></a>
+      </div>
+    </div>
+
+  </header>
+  <section class="h-100" id="mapa">
+    <h2 class="text-hide tituloMapa">Los que alientan desde el cielo <img src="images/mapa-title.png" alt=""
+        class="col-12"> </h2>
+    <div id="map" class="col-md-12 col-sm-11"></div>
+    <div class="d-block d-sm-block d-md-none instrucciones py-5 h-100 container d-flex align-items-center flex-wrap">
+      <h3 class="col-12">Instrucciones</h3>
+      <img src="images/move.svg" alt="" class="col-4 img-fluid">
+      <p class="col-8">Arrastra con dos dedos para desplazarte por el mapa</p>
+      <img src="images/zoom.svg" alt="" class="col-4 img-fluid">
+      <p class="col-8">Utilizar los dos dedos para ampliar o reducir el mapa</p>
+    </div>
+  </section>
+  <section id="reportaje" class="py-5">
+    <div class="container">
+      <h2 class="text-hide mb-3 mb-md-5">Pasión Mortal <img src="images/pasion-mortal-title.png"
+          alt="Reportaje de Pasión Mortal"></h2>
+      <div class="d-flex justify-content-center mb-4">
+        <div class="embed-responsive embed-responsive-16by9 col-12">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/4oM-QRSUTKg?rel=0"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+      <p>La barra-brava es una droga, dice Luz Élida Fernández. Ella la padeció mucho tiempo en la carne de su sobrino
+        Andrés Carvajal, desde niño agarrado por la adicción a esa manada que supuestamente palpita con el sueño de
+        recorrer el mundo detrás de una camiseta. La otra familia. Así la explican. Con la barra se viaja, se come, se
+        sufre y se alienta. Pero también se sangra. Es un clan. Eso dicen. El pasado 9 de febrero Andrés cayó asesinado
+        a puñaladas en el barrio Oásis de Comfandi, cuando intentaba llegar a un clásico del fútbol vallecaucano en el
+        estadio Palmaseca de Palmira. Tenía 27 años y al parecer su pecado capital fue salir vestido de rojo. </p>
+      <p>Varias horas antes del partido de ese día, la secuencia del crimen captada en el celular de un taxista que lo
+        presenció desde la carretera, se viralizó como símbolo fatal del futbol colombiano: el escenario de una
+        confrontación que supera los márgenes de las canchas y se extiende en un sinsentindo que solo encuentra en los
+        cementerios la frontera final. Las imágenes del video ilustran la forma en que la violencia se ha ido
+        naturalizando en las calles, con un chico tratando de escapar de las manos que lo perseguían a cuchillo por
+        pertenecer a otro equipo, mientras el tráfico alrededor transcurría sin alterarse a plena luz. El último soplo
+        de vida de Andrés Carvajal es la confirmación de la indiferencia generalizada: sobre un carro detenido al que
+        recuesta la cabeza pidiendo ayuda, el muchacho se desvanece mientras alguien –ya no el taxista- lo sigue
+        grabando con un teléfono. </p>
+      <!--<div class="d-flex justify-content-center mb-4">
+    <div class="embed-responsive embed-responsive-16by9 col-12 col-md-7">
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/UbdrPl9bPOE?rel=0" allowfullscreen></iframe>
+    </div>
+  </div>-->
+      <p>Aunque el país presenció la muerte a través de redes sociales y portales de noticias, nada pasó esa vez. No
+        hubo suspensión de la fecha, ni siquiera minutos de silencio. Cuando el chico cayó al asfalto solo fue otro
+        número más. La nueva cifra de un inventario en el que pocos se detienen y que ni siquiera existe en los conteos
+        policiales, como si se tratara de ‘faltas’ para las que no hubo árbitro. Pero lo cierto es que según datos de la
+        Fiscalía General, de Medicina Legal y registros de medios de comunicación, 149 personas fueron asesinadas
+        durante los últimos doce años en el país, por el simple hecho de vestir la camiseta de un equipo. Ningún
+        homicidio ocurrió adentro los estadios. Ninguno en medio de un juego. Sin embargo todos los crímenes, de una u
+        otra forma, fueron consecuencia del fútbol. Reflejos inequívocos de la pasión mortal que encierra. </p>
+      <p>Andrés Carvajal era hincha del América. El equipo con mayor número de seguidores asesinados entre 2008 y lo que
+        va del 2020, con 37 casos. Le siguen Nacional (32), Deportivo Cali (22), Millonarios (15) y Medellín (8). Es un
+        conteo perverso. Un viaje estremecedor por uno de los senderos de pena que envuelven el deporte con más
+        fanáticos en Colombia. 149 víctimas es casi el mismo número de plazas que llenaría un articulado del Sistema
+        Masivo Integrado de Occidente, MÍO (con capacidad total para 160 pasajeros). Un bus de muertos: ese es el
+        balance que deja la reciente guerra de barras-bravas en el país. </p>
+      <figure class="figure col-12 d-flex justify-content-center flex-wrap">
+        <img src="images/enfrentamiento-hinchas-santa-fe-campin.jpg" class="figure-img img-fluid h-100 col-12 col-md-8"
+          alt="Hinchas del Santa fe se enfrentan entre ellos en el estadio El Campín. Doce personas han muerto en Colombia en los últimos doce años por riñas entre hinchas del mismo equipo.">
+        <figcaption class="figure-caption text-right col-12 col-md-7">Hinchas del Santa fe se enfrentan entre ellos en
+          el estadio El Campín. Doce personas han muerto en Colombia en los últimos doce años por riñas entre hinchas
+          del mismo equipo.<br><i>Foto: Colprensa</i></figcaption>
+      </figure>
+      <p>“Es una pena que les haya llegado ese virus. Nosotros convivimos hace muchos años con ese virus, no se puede
+        erradicar… Se está haciendo lo imposible”, lamentó desde Buenos Aires Miguel Ángel Brindisi, el técnico que en
+        1997 hizo debutar en Independiente de Avellanada a Alveiro ‘El Palomo’ Usuriaga, delantero caleño acribillado en
+        el 2004 a media cuadra de su casa, en el barrio doce de Octubre. De acuerdo con un listado de la ONG
+        ‘Salvemosalfútbol.org,’ en Argentina, quizás la nación con el fanatismo más exacerbado del planeta, los
+        registros de muertes asociadas al deporte cuentan 334 víctimas entre 1922 y 2019. En poco más de una década,
+        Colombia contó casi la mitad de esos asesinatos.</p>
+      <h3>Le dicen la segunda piel</h3>
+      <p>El 22 de junio del 2013, a Óscar Bayardo Sandino, de 28 años y líder de la barra Comando Azules, lo mataron
+        cuando iba hacia el estadio Pascual Guerrero. Entonces, un grupo de hinchas del Cali le hizo una emboscada al
+        taxi donde iba con otros barristas. “Eso fue a propósito. A mí nadie me lo quita de la cabeza porque el taxista
+        tenía toda la vía para seguir. Pero deja el taxi ahí, y el señor sale y se va… Y se vienen todos a atacar el
+        taxi, todos con piedras, cuchillos, mata-ganados... Y empiezan a atacar a Óscar…” Sandra Sandino, la mamá del
+        muchacho, recuerda su tristeza cuadro a cuadro, a partir del video de una cámara de seguridad que apareció en la
+        investigación judicial del crimen. Vestida de azul y con el pelo negro y largo, vive en la localidad de Suba, en
+        Bogotá.</p>
+      <figure class="figure col-12 d-flex justify-content-center flex-wrap">
+        <img src="images/sandra-sandino-madre-hincha-millonarios-asesinado.jpg"
+          class="figure-img img-fluid h-100 col-12 col-md-8"
+          alt="Sandra Sandino, madre de Óscar Bayardo Sandino, asesinado por hinchas del Deportivo Cali cuando llegaba al estadio Pascuial Guerrero, en junio del 2013.">
+        <figcaption class="figure-caption text-right col-12 col-md-7">Sandra Sandino, madre de Óscar Bayardo Sandino,
+          asesinado por hinchas del Deportivo Cali cuando llegaba al estadio Pascual Guerrero, en junio del
+          2013.<br><i>Foto: Hugo Mario Cárdenas L.</i></figcaption>
+      </figure>
+      <p>Es una película de terror. Una tropa de bárbaros que con el extermino cuajado en los puños la emprende contra
+        cuatro chicos encerrados en un auto: estallan los vidrios, abren las puertas, clavan puñales, manos, patadas,
+        piedras. Pudo ser una masacre pero los chicos escaparon milagrosamente. Todos van mal heridos. Todo es confuso,
+        todos corren. Óscar huye con la espalda perforada hasta la Carrera 28 con Calle Sexta, donde lo alcanzan otra
+        vez. Él no puede verlos, pero sus agresores quedan capturados en un nuevo video, la toma nerviosa de un celular
+        que se asoma por la ventana de una casa del barrio El Cedro. Entonces todo es aun peor: mientras Óscar corre
+        para salvarse recibe una puñalada más, un palazo más, otra pedrada más. Pocas horas antes del partido que lo
+        trajo a Cali, el cuerpo sin vida del chico quedó tendido en el pavimento. </p>
+
+      <div class="embed-responsive embed-responsive-16by9 mx-auto iframe-video col-12 col-md-7">
+        <iframe src="https://www.youtube.com/embed/KBjqRwRXGHQ?rel=0" allowfullscreen></iframe>
+      </div>
+
+      <p>La mamá de Óscar dice que al principio no lograba entender esa manía de su muchacho por vestirse todos los días
+        de azul. Hasta que un día creyó que el amor por Millonarios le compensaba a su hijo la ausencia del papá. Sandra
+        es viuda. De modo que un día fue de lo más normal que Óscar siempre llevara prendas del equipo, camisetas,
+        chaquetas, gorras, medias, lo que fuera. “Le dicen la segunda piel”, explica ella bajo la visera de una gorra
+        con el escudo de Millos. El día del entierro, cuenta Sandra, el dueño de la funeraria le regaló un ataúd azul y
+        blanco para que Óscar al fin descansara en paz.</p>
+      <figure class="figure col-12 d-flex justify-content-center flex-wrap">
+        <img src="images/sepelio-lider-comandos-azules-oscar-bayardo.jpg"
+          class="figure-img img-fluid h-100 col-12 col-md-8"
+          alt="En Bogotá fue sepultado el líder de la barra Comandos Azules de Millonarios, Óscar Bayardo Sandino, asesinado en Cali por hinchas del Deportivo Cali.">
+        <figcaption class="figure-caption text-right col-12 col-md-7">En Bogotá fue sepultado el líder de la barra
+          Comandos Azules de Millonarios, Óscar Bayardo Sandino, asesinado en Cali por hinchas del Deportivo
+          Cali.<br><i>Foto: Colprensa</i></figcaption>
+      </figure>
+      <p>Si bien es cierto que hay confrontaciones entre hinchas con detonantes distintos al juego, o la defensa de los
+        colores, Alirio Amaya, experto en Convivencia y Seguridad del Fútbol, cree que el espectáculo y lo que implica,
+        se transformó en un espacio que refleja toda la violencia que hay por fuera de los estadios: “Los hinchas no
+        llegan de otro planeta, son los que están en los barrios, en las comunas…” Amaya, que estuvo vinculado a la
+        investigación del proyecto Goles en Paz, y al diseño del programa de barrismo social en Bogotá, dice que eso es
+        lo que sucede en muchos casos con los menores de edad: “En algunas organizaciones (barras) el tema está
+        desbordado y estos menores generan muchos problemas, muchas prácticas que ponen en riesgo su propia vida, por
+        citar el tema de ‘los guerriados’, los que viajan en camiones, donde hay una gran cantidad de muertos”. La
+        quinta parte de las víctimas contabilizadas durante los últimos doce años, eran chicos entre los 14 y los 17
+        años. </p>
+      <figure class="figure col-12 d-flex justify-content-center flex-wrap">
+        <img src="images/pelea-machete-hinchas-medellin-atanasio-girardot.jpg"
+          class="figure-img img-fluid h-100 col-12 col-md-8"
+          alt="Fanáticos del Independiente Medellín se encuentran a la llegada al estadio Atanasio Girardot y se frentan entre ellos con machétes y cuchillos previo a un clásico.">
+        <figcaption class="figure-caption text-right col-12 col-md-7">Fanáticos del Independiente Medellín se encuentran
+          a la llegada al estadio Atanasio Girardot y se frentan entre ellos con machétes y cuchillos previo a un
+          clásico.<br><i>Foto: Tomada del video de un hincha.</i></figcaption>
+      </figure>
+      <h3>El inventario de una carnicería</h3>
+      <p>Además de mortal esta pasión también es ciega. En lo que va corrido del 2020, es decir, en el año sin fútbol,
+        cinco personas ya perdieron la vida por los colores de su corazón. Una de ellas era un hincha del Cali, Nicolás
+        Caicedo Velásquez, de 21 años, que murió en Nueva York, en la zona de restaurantes de Queens. </p>
+      <p>La familia contó que el muchacho fue a retirar dinero de un cajero electrónico cuando se encontró con un
+        conocido y otras personas que empezaron a hablar de fútbol. Según parece, a Nicolás lo atacó un hincha del
+        América, que le clavó un cuchillo en el pecho. En el mapa de los agresores, el ranking de la tragedia también se
+        repite con los mismos equipos en los mismos lugares: primero América (31 casos), después Nacional (24), Cali
+        (14), Millonarios (12) y Medellín (7).</p>
+      <p>Bajo la lupa del microcoscopio, “el virus”, como lo llama Migue Ángel Brindisi, se ve todavía más feo: de las
+        149 víctimas contabilizadas en los últimos doce años, 99 perdieron la vida por arma blanca. A 36, las mataron
+        con arma de fuego. 9 de ellas murieron por caídas de altura, y entre el registro está el caso de Iván Tróchez,
+        John Marvein, Cristian González y José Antonio Mayorga, hinchas del América que cayeron a un precipicio en la
+        Vía Panamericana, mientras huían de una persecución policial. </p>
+      <figure class="figure col-12 d-flex justify-content-center flex-wrap">
+        <img src="images/hinchas-union-magdalena-ataud-estadio-eduardo-santos.jpg"
+          class="figure-img img-fluid h-100 col-12 col-md-8"
+          alt="Hinchas del Unión Magdalena intentan ingresar al estadio Eduardo Santos, por la fuerza, el ataúd con el cuerpo de un hincha del ciclón bananero muerto el día anterior.">
+        <figcaption class="figure-caption text-right col-12 col-md-7">Hinchas del Unión Magdalena intentan ingresar al
+          estadio Eduardo Santos, por la fuerza, el ataúd con el cuerpo de un hincha del ciclón bananero muerto el día
+          anterior.<br><i>Foto: Colprensa</i></figcaption>
+      </figure>
+      <p>Por objetos contundentes hay tres víctimas registradas. Otra más murió en medio de una golpiza. Y a otra, la
+        aplastaron con un carro: se llamaba Juan Esteban Díaz, tenía 20 años y era hincha del Nacional; un grupo de
+        aficionados del Deportivo Cali con los que había tenido una riña en un restaurante, lo siguieron fuera del
+        negocio en un automóvil hasta atropellarlo. Sucedió el 17 de marzo del 2013 en la vía Yumbo-Yotoco. Lo que
+        expone el microscopio, pues, es el inventario de una carnicería.</p>
+      <p> El Valle es el departamento con más muertes (49), seguido de Cundinamarca (29), Antioquia (21), Santander (8)
+        y Caldas (6). Luego están Nariño (6), Córdoba (5), Tolima (5), Cauca (4) y Cesar (3), lo que indica que la
+        violencia atraviesa todo el país, incluyendo regiones que no han tenido una gran tradición futbolera. Y eso
+        tiene que ver con que muchas de estas muertes ocurrieron en en el transcurso de un viaje con un partido como
+        pretexto: entre el 2008 y el 2020, quedaron registrados 51 homicidios de hinchas en carreteras de Colombia.
+        Cuatro asesinatos ocurrieron en los peajes de Chuzacá (Soacha), Betania (Valle), Estambul (Valle) y Villa Rica
+        (Cauca). </p>
+      <h3> Como perros sin dueño</h3>
+      <p>José Sarsey Bolaños Silva perdió a su hijo Jonatan, de 17 años, el 30 de abril del 2016, cuando el muchacho
+        trataba de regresar haciendo auto-stop desde Pasto, a donde había viajado para ver al Deportivo Cali. Conocido
+        como El Chinga o El Caleñito, Jonatán se había hecho fama en Armenia, donde nació, por las aventuras temerarias
+        que lideraba sobre camiones y tractomulas que aprendió a cabalgar para recorrer el país detrás de su afición. En
+        cuentas de Instagram y de Facebook que destacan la osadía vandálica de los combos que viajan de esa forma, las
+        fotos de Jonatan aparecen de vez en cuando como postales al desafío de cualquier ley.</p>
+      <figure class="figure col-12 d-flex justify-content-center flex-wrap">
+        <img src="images/padre-yonatan-bolanos-hincha-deportivo-cali-asesinado.jpg"
+          class="figure-img img-fluid h-100 col-12 col-md-8"
+          alt="El padre de Yonatan Bolaños, José Bolaños, lamentó lo ocurrido con su hijo, hincha del Deportivo Cali y asesinado por seguidores del América en la Vía Panamericana.">
+        <figcaption class="figure-caption text-right col-12 col-md-7">El padre de Yonatan Bolaños, José Bolaños, lamentó
+          lo ocurrido con su hijo, hincha del Deportivo Cali y asesinado por seguidores del América en la Vía
+          Panamericana.<br><i>Foto: Hugo Mario Cárdenas.</i></figcaption>
+      </figure>
+      <p>“Con una edad de unos 12 años fue que él empezó a escaparse, porque yo tenía que irme a jornalear a las fincas.
+        Al principio iba a Cali o a Pereira, pero de 13 años en adelante no lo atajaba nadie: iba a Barranquilla, a
+        Bucaramanga, Floridablanca, fue a Cúcuta, anduvo todo Colombia y todo así… La última vez que yo lo aconsejé, le
+        dije Jonatan no haga eso mijo, yo sufro mucho por usted… Y él me decía que noooo, que no pasa nada papá… Y yo
+        mijo, eso no lo diga que hasta presiento cosas: ¿Usted cree que va a ser bueno que para mí que alguna vez reciba
+        una razón de que a usted lo mataron, que no se sabe donde se quedó? Lo botan por ahí y hasta un perro se lo
+        come…”</p>
+      <p>José Sarsey Bolaños encontró a su hijo tres días después de muerto. Lo asesinaron a lances de machete cuando se
+        cruzó en la Vía Panamericana con una gavilla de hinchas del América que también viajaban a lomo de tractomula.
+        El cuerpo apareció en aguas del río Mandivá, al norte del Cauca.</p>
+
+      <div class="embed-responsive embed-responsive-16by9 mx-auto iframe-video col-12 col-md-7">
+        <iframe src="https://www.youtube.com/embed/XkGxpr8WoiY?rel=0" allowfullscreen></iframe>
+      </div>
+
+      <p>Paradójicamente, dice el experto en Fútbol y Convivencia, Alirio Amaya, Colombia es un referente de trabajo
+        articulado entre el Gobierno, la ciudadanía y las barras: “Los mismos clubes deportivos ayudaron a construir la
+        única política pública que existe en el mundo, que es el Plan Decenal del Fútbol”. Es decir, no hay otro lugar
+        en el planeta con un plan así. Solo funciona en Colombia, el país del Sagrado Corazón, el país de la pasión
+        mortal.</p>
+    </div>
+  </section>
+  <section class="py-5 h-100" id="midroga">
+    <div class="container h-100 d-flex align-items-center flex-wrap justify-content-center">
+      <h2 class="col-8 col-md-4 text-hide">Mi droga sos vos <img src="images/midroga-logo.png" alt=""
+          class="img-fluid col-12"></h2>
+      <div class="embed-responsive embed-responsive-16by9 col-12 col-md-7 offset-md-1">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/UbdrPl9bPOE?rel=0"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="anexos">
+    <div class="container">
+
+      <a href="delgada-linea-barras-bandas-pasion-mortal.php">
+        <div class="anexo d-flex flex-wrap align-items-center justify-content-center py-3 mb-4">
+          <img src="images/enfrentamiento-hinchas-santa-fe-campin.jpg" alt="" class="col-sm-12 col-md-4">
+          <div class="col-md-8 col-sm-12">
+            <h3>La delgada línea entre las barras y las bandas</h3>
+            <p>Nada cambia: a pesar de ser el único país con una política social construida para enfrentar la violencia
+              asociada al fútbol, la criminalidad sigue ganando el partido. Conteo de goles en contra.</p>
+            <button class="btn btn-light float-md-right float-sm-none"
+              href="delgada-linea-barras-bandas-pasion-mortal.php" target="_self" role="button">Seguir leyendo</button>
+          </div>
+        </div>
+      </a>
+
+      <a href="barra-brava-problema-social-colombia.php">
+        <div class="anexo d-flex flex-wrap align-items-center justify-content-center py-3 mb-4">
+          <img src="images/bandas-problemas-sociales-alirio-ayala.jpg" alt="" class="col-sm-12 col-md-4">
+          <div class="col-md-8 col-sm-12">
+            <h3>“La barra refleja los problemas sociales del país”</h3>
+            <p>Alirio Amaya, experto en convivencia y seguridad en el fútbol, habla del significado de que 149 jóvenes
+              murieran en los últimos años por llevar la camiseta de un equipo.</p>
+            <button class="btn btn-light float-md-right float-sm-none" href="barra-brava-problema-social-colombia.php"
+              target="_self" role="button">Seguir leyendo</button>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+
+
+
+
+  <section class="comparte py-5">
+    <div class="comparte container text-center mb-5">
+      <h2 class="text-hide mb-3">Comparte en tus redes sociales <img src="images/comparte-title.png" alt=""
+          class="col-6 col-md-2"></h2>
+      <div class="d-flex justify-content-center text-center py-3">
+        <a target="_blank"
+          href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.elpais.com.co%2Fespeciales%2Fpasion-mortal-hinchas-futbol-asesinados-colombia%2F&amp;src=sdkpreparse"
+          class="fb-xfbml-parse-ignore"><i class="fab fa-facebook-f col-2 col-md-1"
+            style="font-size:35px;color:#750104"></i></a>
+        <a href="https://twitter.com/share?url=https://www.elpais.com.co/especiales/pasion-mortal-hinchas-futbol-asesinados-colombia/&amp;text= Pasión Mortal, inventario de una tragedia - El País Cali"
+          target="_blank"><i class="fab fa-twitter col-2 col-md-1" style="font-size:35px;color:#750104"></i></a>
+        <a href="whatsapp://send?text=Pasión Mortal, inventario de una tragedia - El País Cali https://www.elpais.com.co/especiales/pasion-mortal-hinchas-futbol-asesinados-colombia/"
+          data-action="share/whatsapp/share"><i class="fab fa-whatsapp col-2 col-md-1"
+            style="font-size:35px;color:#750104"></i></span></a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h5 class="text-center">COMENTA</h5>
+      <div class="fb-comments"
+        data-href="https://www.elpais.com.co/especiales/pasion-mortal-hinchas-futbol-asesinados-colombia/"
+        data-numposts="5" data-width="100%"></div>
+
+    </div>
+  </section>
+  <footer class="py-3">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left mt-5">
+
+      <!-- Grid row -->
+      <div class="d-flex justify-content-center flex-wrap mt-3">
+
+        <!-- Grid column -->
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
+
+          <!-- Links -->
+          <h3 class="text-uppercase font-weight-bold">Créditos</h3>
+          <h6><b>Periodista</b></h6>
+          <p>
+            Jorge Enrique Rojas<br>
+            Hugo Mario Cárdenas<br>
+            Juan Carlos Pamo <br>
+            Felipe Becerra<br>
+            César Polanía
+          <p>
+          <h6><b>Diseño multimedia</b></h6>
+          <p>
+            Henry Ríos
+          </p>
+          <h6><b>Gráficos</b></h6>
+          <p>
+            Edward Certuche
+          </p>
+          <h6><b>Videógrafos</b></h6>
+          <p>
+            Juan Camilo Rodríguez <br>
+            Álvaro Pío Fernández<br>
+            Juan Sebastián Lobo
+          </p>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mx-auto creditos text-center">
+
+          <!-- Content -->
+
+          <a href="https://www.elpais.com.co"><img src="images/logo-pais.png" class="img-fluid col-10 mb-5"
+              alt="Diario El País, Cali Colombia"></a>
+          <p class="">El País S.A. © 2020 | Cra. 2 No.24-46 - Tel: (+572) 898 7000</p>
+          <p>Email: suscripciones.elpais.com.co | Cali, Colombia</p>
+
+
+        </div>
+        <!-- Grid column -->
+
+
+
+      </div>
+      <!-- Grid row -->
+
+      <hr class="my-4">
+
+      <div class="container text-center">
+        <p><a href="http://www.elpais.com.co/servicios/politica-y-tratamiento-de-datos" target="_blank">Política y
+            tratamiento de datos</a>
+        <p><a href="http://www.elpais.com.co/servicios/aviso-legal" target="_blank">Aviso legal</a></p>
+        <p><a href="http://www.sic.gov.co/" target="_blank">Superintendencia de Industria y Comercio de Colombia</a></p>
+      </div>
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <!-- Copyright -->
+
+  </footer>
+
+  <script async src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script async src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script async src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <script>
+    var url = "hinchas.json";
+
+    var map = L.map('map', {
+      minZoom: 5,
+      maxZoom: 14,
+      zoomSnap: 0.25,
+      scrollWheelZoom: false,
+      dragging: !L.Browser.mobile,
+      tap: !L.Browser.mobile
+    }).setView([6, -75.1], 6);
+
+    var osm = new L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png').addTo(map);
+
+    // Set function for color ramp
+    function getColor(equipo) {
+      return equipo == 'Atlético Nacional' ? "url('#atleticoNacional')" :
+        equipo == 'Deportivo Cali' ? "url('#deportivoCali')" :
+          equipo == 'Santa Fe' ? "url('#santafe')" :
+            equipo == 'América de Cali' ? "url('#america')" :
+              equipo == 'Boyacá Chicó' ? "url('#chico')" :
+                equipo == 'Jaguares de Córdoba' ? "url('#jaguares')" :
+                  equipo == 'Millonarios' ? "url('#millonarios')" :
+                    equipo == 'Once Caldas' ? "url('#caldas')" :
+                      equipo == 'Patriotas F.C.' ? "url('#patriotas')" :
+                        equipo == 'Unión Magdalena' ? "url('#union')" :
+                          equipo == 'Deportivo Pereira' ? "url('#pereira')" :
+                            equipo == 'Independiente Medellín' ? "url('#medellin')" :
+                              equipo == 'Deportes Tolima' ? "url('#tolima')" :
+                                equipo == 'Junior de Barranquilla' ? "url('#junior')" :
+                                  equipo == 'Atlético Bucaramanga' ? "url('#bucaramanga')" :
+                                    equipo == 'Alianza Petrolera' ? "url('#alianza')" :
+                                      equipo == 'No era hincha' ? "gray" :
+                                        'yellow';
+    }
+
+    // Set function for color ramp
+    /*function getArma(arma){
+     return arma == 'Arma blanca' ? "url('#atleticoNacional')" :
+           arma == 'Deportivo Cali' ? "url('#deportivoCali')" :
+           arma == 'Santa Fe' ? "url('#santafe')" :
+           arma == 'América de Cali' ? "url('#america')" :
+                     'black';
+         }*/
+
+
+
+    function forEachFeature(feature, layer) {
+
+      layer.on('click', function (e) {
+        // get coordinates from GeoJSON
+        var coords = e.target.feature.geometry.coordinates
+
+        //pass coords to function to create marker.(Yellow circle)
+        onMapClick(coords);
+      });
+
+      var observaciones = "<div class='fecha'><p><i class='fas fa-calendar-alt'></i> " +
+        feature.properties.fecha +
+        "</p></div>" +
+        "</div><div class='info'> <h2>" +
+        feature.properties.nombre + " " +
+        feature.properties.apellidos +
+        "</h2><span class='edad'>" +
+        feature.properties.edad + "</span><p style='color:" +
+        getColor(feature.properties.hincha_de) +
+        "' class='hincha_de'><b>Hincha de:</b> " +
+        feature.properties.hincha_de + "</p><p class='arma'><b>Asesinado con</b> " +
+        feature.properties.arma +
+        "</p><p class='lugar'><i class='fas fa-map-marker-alt'></i> " +
+        feature.properties.sector + ", " + feature.properties.ciudad + ", " + feature.properties.departamento +
+        "</p><p class='agresor'><b>Agresor, hincha de</b> " +
+        feature.properties.agresor_de +
+        "</p></div>";
+
+      if (feature.properties && feature.properties.observaciones) {
+        observaciones += "<p class='observaciones'>" + feature.properties.observaciones + "</p>";
+      }
+      layer.bindPopup(observaciones);
+
+    };
+
+    //var hinchas = L.geoJSON(null, {onEachFeature: forEachFeature, style: style});
+    var hinchas = L.geoJSON(null, {
+      onEachFeature: forEachFeature,
+      pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+          radius: 12,
+          opacity: 0.8,
+          stroke: '#fff',
+          //color: "#000",
+          color: getColor(feature.properties.hincha_de),
+          fillColor: getColor(feature.properties.hincha_de),
+          fillOpacity: 0.8
+
+        }).bindTooltip("<div class='d-none d-sm-none d-md-block'><b>" + feature.properties.nombre + " " + feature.properties.apellidos + "</b><br>" + feature.properties.hincha_de + "</div>");
+
+      }
+
+    });
+
+
+
+
+
+    // Get GeoJSON data and create features.
+    $.getJSON(url, function (data) {
+      hinchas.addData(data);
+    });
+
+    hinchas.addTo(map);
+
+    // click marker
+    var clickmark;
+
+    // When you click on a circleMarker, it calls the onMapClick function and passes the layers coordinates.
+    // I grab the coords which are X,Y, and I need to flip them to latLng for a marker,  
+    function onMapClick(coords) {
+      var thecoords = coords.toString().split(',');
+      var lat = thecoords[1];
+      var lng = thecoords[0];
+
+      if (clickmark != undefined) {  //if prior marker exists, remove it.
+        map.removeLayer(clickmark);
+      };
+
+      clickmark = L.circleMarker([lat, lng], {
+        radius: 15,
+        color: 'yellow',
+        fillColor: 'yellow',
+        fillOpacity: 0.2
+      }
+      ).addTo(map);
+
+    }
+    // end of code for click marker.
+
+
+
+  </script>
+  <script
+    type="text/javascript">window.NREUM || (NREUM = {}); NREUM.info = { "beacon": "bam-cell.nr-data.net", "licenseKey": "7ef148dbc4", "applicationID": "26359159", "transactionName": "ZFdTbRMDWkEHUkRRV10dZEsITVFBFlRTUVlfV0IWEQNHWwlfHVVXQUZQVUwKXVwFWVFLFVVHRVsODhlTFVRDUVZSVl5KTAFbXglcUlFZHFtfXQQaGkIOQQ==", "queueTime": 0, "applicationTime": 1, "atts": "SBBQG1sZSU8=", "errorBeacon": "bam-cell.nr-data.net", "agent": "" }</script>
+</body>
+
+
+</html>
+
+<svg>
+  <defs>
+    <linearGradient id="deportivoCali" gradientTransform="rotate(45 .5 .5)">
+      <stop offset="49%" stop-color="#008a4c"></stop>
+      <stop offset="50%" stop-color="#fff"></stop>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="atleticoNacional">
+      <stop offset="19%" stop-color="green"></stop>
+      <stop offset="20%" stop-color="#fff"></stop>
+      <stop offset="39%" stop-color="#fff"></stop>
+      <stop offset="40%" stop-color="green"></stop>
+      <stop offset="59%" stop-color="green"></stop>
+      <stop offset="60%" stop-color="#fff"></stop>
+      <stop offset="79%" stop-color="#fff"></stop>
+      <stop offset="80%" stop-color="green"></stop>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="santafe">
+      <stop offset="49%" stop-color="#f2132e"></stop>
+      <stop offset="50%" stop-color="#fff"></stop>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="america">
+      <stop offset="100%" stop-color="red"></stop>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="chico">
+      <stop offset="0%" stop-color="#1d1e44"></stop>
+      <stop offset="19%" stop-color="#1d1e44"></stop>
+      <stop offset="20%" stop-color="#ff7920"></stop>
+      <stop offset="39%" stop-color="#ff7920"></stop>
+      <stop offset="40%" stop-color="#1d1e44"></stop>
+      <stop offset="59%" stop-color="#1d1e44"></stop>
+      <stop offset="60%" stop-color="#ff7920"></stop>
+      <stop offset="79%" stop-color="#ff7920"></stop>
+      <stop offset="80%" stop-color="#1d1e44"></stop>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="jaguares">
+      <stop offset="100%" stop-color="#9bd7ef"></stop>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="millonarios">
+      <stop offset="100%" stop-color="#024ea0"></stop>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="caldas">
+      <stop offset="20%" stop-color="#015602"></stop>
+      <stop offset="21%" stop-color="#fff"></stop>
+      <stop offset="80%" stop-color="#fff"></stop>
+      <stop offset="81%" stop-color="#cf1c24"></stop>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="patriotas">
+      <stop offset="100%" stop-color="#ff4d59"></stop>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="union">
+      <stop offset="0%" stop-color="#bb060b"></stop>
+      <stop offset="19%" stop-color="#bb060b"></stop>
+      <stop offset="20%" stop-color="#02136a"></stop>
+      <stop offset="39%" stop-color="#02136a"></stop>
+      <stop offset="40%" stop-color="#bb060b"></stop>
+      <stop offset="59%" stop-color="#bb060b"></stop>
+      <stop offset="60%" stop-color="#02136a"></stop>
+      <stop offset="79%" stop-color="#02136a"></stop>
+      <stop offset="80%" stop-color="#bb060b"></stop>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="pereira" gradientTransform="rotate(45 .5 .5)">
+      <stop offset="49%" stop-color="#fe0000"></stop>
+      <stop offset="50%" stop-color="#fef200"></stop>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="medellin" gradientTransform="rotate(45 .5 .5)">
+      <stop offset="49%" stop-color="#e20612"></stop>
+      <stop offset="50%" stop-color="#0000f7"></stop>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="tolima">
+      <stop offset="49%" stop-color="#aa0000"></stop>
+      <stop offset="50%" stop-color="#ffff00"></stop>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="junior">
+      <stop offset="10%" stop-color="#0148be"></stop>
+      <stop offset="11%" stop-color="#fff"></stop>
+      <stop offset="26%" stop-color="#fff"></stop>
+      <stop offset="27%" stop-color="#f72e2a"></stop>
+      <stop offset="42%" stop-color="#f72e2a"></stop>
+      <stop offset="43%" stop-color="#fff"></stop>
+      <stop offset="58%" stop-color="#fff"></stop>
+      <stop offset="59%" stop-color="#f72e2a"></stop>
+      <stop offset="74%" stop-color="#f72e2a"></stop>
+      <stop offset="75%" stop-color="#fff"></stop>
+      <stop offset="90%" stop-color="#fff"></stop>
+      <stop offset="91%" stop-color="#0148be"></stop>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="bucaramanga" gradientTransform="rotate(90 .5 .5)">
+      <stop offset="69%" stop-color="#fff500"></stop>
+      <stop offset="70%" stop-color="#00923f"></stop>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="alianza">
+      <stop offset="33%" stop-color="#f5e800"></stop>
+      <stop offset="34%" stop-color="#000"></stop>
+      <stop offset="67%" stop-color="#000"></stop>
+      <stop offset="68%" stop-color="#f5e800"></stop>
+    </linearGradient>
+  </defs>
+</svg>

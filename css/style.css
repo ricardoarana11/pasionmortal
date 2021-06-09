@@ -1,0 +1,788 @@
+ @import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,200,300,400&display=swap');
+ @font-face {
+  font-family: "28days";
+  src: url("fonts/28_days_later-webfont.woff");
+  src: url("fonts/28_days_later-webfont.woff2") format("woff2"),
+  url("fonts/28_days_later-webfont.svg#filename") format("svg");
+  }
+
+ body, html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  scroll-behavior: smooth;
+  background-color: #e9e6e1;
+}
+svg {
+  position: absolute;
+  z-index: 999999;
+  top: 0;
+}
+ a {
+  color: #fff;
+  font-weight: 500;
+}
+#map{
+  height: 100%;
+}
+a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.navbar {
+  position: fixed;
+  z-index: 9999;
+  background-color: #750104;
+  width: 100%;
+}
+.arrow {
+  font-size: 4vh;
+}
+header .logo {
+  padding: 50px 0px;
+  position: relative;
+  z-index: 4;
+  height: 100%;
+}
+.navbar a{
+  font-family: 'Merriweather', serif;
+  font-size: 1.3rem;
+}
+.navbar .nav-flex-icons {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  justify-content: center;
+}
+.navbar .nav-flex-icons li {
+  margin: 0 20px;
+  font-size: 1.3rem;
+}
+nav .nav-item a {
+  color: #fff !important;
+}
+#reportaje{
+  background-image: url('../images/bg-punticos.jpg');
+background-size: cover;
+background-position: 35%;
+background-attachment: fixed;
+background-color: #FFFFFFe6;
+background-blend-mode: overlay;
+border-bottom: 5px solid #efd418;
+}
+#reportaje p{
+  color: #282828; 
+}
+#reportaje h3{
+  color: #750104;
+  font-family: 'Roboto Slab', sans-serif;
+font-size: 1.7rem;
+padding-bottom: 1rem;
+font-weight: 500; 
+}
+#midroga{
+  background-image: url('../images/bg-header.jpg');
+  background-size: cover;
+  background-attachment: inherit;
+  background-color: #0000007d;
+  background-blend-mode: overlay;
+  filter: grayscale(0%);
+  background-position-x: 50%;
+}
+#midroga iframe{
+  border: 5px solid #efd418;
+}
+header {
+  position: relative;
+  background-color: black;
+  height: auto;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+  background-image: url('../images/bg-header.jpg');
+  background-size: cover;
+  background-attachment: inherit;
+  background-color: #0000002a;
+  background-blend-mode: overlay;
+  filter: grayscale(0%);
+  background-position-x: 50%;
+  border-bottom: 5px solid #efd418;
+}
+#entrevista{
+  background-image: url('../images/bandas-problemas-sociales-alirio-ayala.jpg');
+  background-position-x: 40%;
+}
+#entrevista  .logo{
+  padding: 10px 0px;;
+}
+#entrevista b{
+  font-weight: 600;
+}
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: cover;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+.mainmenu {
+  border-top: 1px solid #ffffff2e;
+}
+.mainmenu ul{
+  list-style: none;
+  padding: 0;
+}
+.mainmenu li{
+  list-style: none;
+  padding: 10px 0px;
+  border-bottom: 1px solid #8e2f31;
+}
+.mainmenu a{
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-family: 'Lato';
+}
+.mainmenu li a:hover{
+  color:#fff;
+  border-bottom: 1px solid #ffe2b1;
+}
+
+.jumbotron{
+  background-image: url(../images/noticias-de-un-secuestro-paola-gomez-opinion.jpg), linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(17,17,17,1) 100%);
+  background-position: bottom right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  /*background-color: rgba(45, 0, 0, 0.673);*/
+  background-color: linear-gradient(180deg, rgba(0,0,0,0) 52%, rgba(17,17,17,1) 100%);
+  padding-top: 40%;
+  border-radius: 0;
+  padding-bottom: 20px;
+  background-position: 10% bottom;
+}
+#estado .jumbotron{
+  background-image: url(../images/estado-nos-fallo-victimas-secuestro-kilometro-18-cali.jpg), linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(17,17,17,1) 100%);
+  background-position: 50% bottom;
+}
+#memoria .jumbotron{
+  background-image: url(../images/memoria-transformar-futuro-lourdes-mesa.jpg), linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(17,17,17,1) 100%);
+  background-position: 60% bottom;
+}
+#divulgar .jumbotron{
+  background-image: url(../images/divulgar-memoria-conmemoracion-secuestro-kilometro-18-cali.jpg), linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(17,17,17,1) 100%);
+  background-position: 40% bottom;
+}
+#desnudo .jumbotron{
+  background-image: url(../images/secuestro-kilometro-18-cali-motociclistas.jpg), linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(17,17,17,1) 100%);
+  background-position: 55% bottom;
+}
+.lead{
+  width: 80%;
+text-align: center;
+margin: 20px auto 40px auto;
+font-style: italic;
+font-size: 1.3rem;
+border-bottom: 1px dotted #282828;
+padding: 20px 0px;
+border-top: 1px dotted #282828;
+}
+.jumbotron .lead{
+  color: #fff;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  border-top: none;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom-color: #ffe2b1;
+  border-bottom-style: solid;
+  font-style: initial;
+  font-weight: 400;
+}
+.jumbotron img{
+  padding:0;
+}
+.jumbotron h2{
+  text-align: left;
+}
+.jumbotron hr{
+  color: #ffe2b1;
+  border-top: 1px solid;
+}
+.autor{
+  color: #fff;
+}
+ /*.header{
+  background-image: url(../images/100-dias-covid-19-cali.jpg);
+  background-position: top left;
+  background-size: cover;
+  background-repeat: color-burn;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+   background-color: rgba(0, 0, 0, 0.516);
+   -moz-box-shadow:    inset 0 0 20px #000000;
+   -webkit-box-shadow: inset 0 0 20px #000000;
+   box-shadow:         inset 0 0 20px #000000;
+   padding-top: 35%;
+   height: 100%;
+ }*/
+ .intro{
+   color: white;
+   font-weight: 200;
+   font-family: 'Lato', serif;
+   font-size: 1.2vw;
+ }
+ body{
+   font-family: 'Lato', sans-serif;
+   color: hsl(345, 6%, 13%);
+ }
+ .btn-warning {
+  color: #282828;
+  background-color: #ffe2b1;
+  border-color: #ffe2b1;
+}
+h1{
+  font-family: 'MarÃ­a', cursive;
+  font-weight: 600;
+  color: #ffe2b1;
+  font-size: 5vw;
+line-height: 3vw;
+text-shadow: 2px 2px 2px #282828;
+}
+.pre{
+  font-size: 2vw;
+  line-height: 0.5vw;
+  background: #ffe2b1;
+  padding: 5px 20px;
+  color: #282828;
+  font-family: 'Roboto Slab';
+  font-weight: 400;
+text-shadow: none;
+}
+.autor{
+  color: #ffe2b1;
+  margin-bottom: 10px;
+  padding: 0;
+  font-size: 2vh;
+}
+h2{
+  font-family: '28days';
+font-weight: 600;
+color: #fd0000;
+text-align: center;
+font-size: 2rem;
+ }
+ .jumbotron h2{
+   font-weight: 600;
+   color: #ffe2b1;
+   font-size: 4.5vh;
+   padding: 0;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 3px #282828;
+ }
+ h3{
+  font-family: 'MarÃ­a', serif;
+font-size: 1.7rem;
+padding-bottom: 1rem;
+ }
+ #mapa {
+  background: #262626;
+  padding: 5px 0px;
+}
+.tituloMapa{
+  position: absolute;
+  right: 10px;
+  z-index: 9998;
+  width: 600px;
+}
+.leaflet-popup-content-wrapper{
+  border: 2px solid #750104;
+  background-color: rgb(222, 222, 222);
+}
+.leaflet-container a.leaflet-popup-close-button{
+  top: 5px;
+  right: 5px;
+  font: 20px/18px Tahoma, Verdana, sans-serif;
+  width: 25px;
+  height: 20px;
+  color:#750104;
+}
+#map .info{
+  padding-bottom: 10px;
+  border-bottom: 1px solid #750104;
+}
+#map h2{
+  font-family: 'Roboto Slab';
+font-weight: 600;
+color: #282828;
+text-align: center;
+font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+.hincha_de, .agresor, .arma, .lugar{
+font-family: 'Lato', serif;
+font-size: 1.1rem;
+color: #282828;
+letter-spacing: 0;
+text-transform: none;
+text-align: center;
+margin: 0 !important;
+}
+#map .observaciones {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+
+.edad {
+  margin: 0 auto 15px auto;
+text-align: center;
+font-size: 1rem;
+font-family: 'Lato';
+background-color: #282828;
+color: #fff;
+padding: 0px 5px;
+display: table;
+}
+h4{
+  color: #1e4980;
+  font-weight: 600;
+}
+h5{
+  font-size: 1.2rem;
+}
+p{
+
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  font-family: 'Roboto Slab', sans-serif;
+  color: #282828;
+}
+.fecha p{
+  text-align: center;
+  font-size: .9rem;
+  font-family: 'Lato';
+  background-color: #750104;
+  color: #fff;
+  padding: 0px 5px 0px 30px;
+  display: table;
+  position: relative;
+  left: -20px;
+  margin: 5px 0px;
+  }
+#desnudo h3{
+  color:#282828;
+  padding-bottom: 0;
+}
+#reportaje .anexo {
+  border-bottom: 1px dotted #282828;
+  border-top: 1px dotted #282828;
+  padding: 10px 10px;
+  color: #fe0000;
+  font-family: 'Roboto Slab';
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+#reportaje a {
+  color: #282828;
+  font-weight: 600;
+}
+#reportaje a:hover {
+  color: #750104;
+  font-weight: 600;
+}
+.anexos h3 {
+  color: #750104;
+  padding-bottom: 0;
+  font-family: 'Roboto slab';
+  font-weight: 600;
+}
+
+.anexos p{
+  font-size: 1.2rem;
+}
+.anexo{
+  border-bottom: 1px dotted #282828;
+  border-top: 1px dotted #282828;
+}
+/*.anexo img:hover{
+  filter: sepia(0.5);
+}*/
+.figure-img{
+  padding-left: 0;
+  padding-right: 0;
+  border: 5px groove #750104;
+}
+.anexo .btn{
+  background-color: #750104;
+  color: #fff;
+}
+
+
+blockquote{
+  padding: 1rem 5rem;
+  color: #282828;
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-family: 'Lato', serif;
+  border: 1px dotted #282828;
+  font-style: italic;
+  width: 70%;
+  text-align: center;
+  margin: 30px auto;
+}
+
+blockquote:before{
+  content: 'â€œ';
+  font-size: 4rem;
+  color: #fd0000;
+  position: absolute;
+  font-family: 'MarÃ­a', sans-serif;
+  line-height: 0;
+  left: 50%;
+  font-style: initial;
+  font-weight: 600;
+}
+
+/*blockquote:after{
+  content: 'â€';
+  font-size: 6rem;
+  color: #ffa01c;
+  position: relative;
+  bottom: -95px;
+  right: -30px;
+  font-family: 'Noto Sans TC', sans-serif;
+}*/
+.columna{
+  background-color: #282828;
+  border-bottom: 5px solid #ffe2b1;
+}
+.columna a:hover {
+  color:#ffe2b1 !important;
+  text-decoration: none !important;
+}
+.columna .btn-light{
+  background-color: #ffe2b1;
+}
+.columna p{
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.prevencion, .infeccion, .contacto{
+  background-color: #262626;
+  color: #fff;
+}
+
+:host header a #logo{
+  display: none !important;
+}
+
+.card #cardText .h1{
+  font-size:5vw !important;
+}
+footer{
+  background-color: #282828;
+  color:#fff;
+}
+footer p{color: #fff;font-size: 1.2vw;}
+footer hr{
+  background-color: #666;
+}
+
+footer a{
+  font-weight: 300 !important;
+}
+
+.centrado{
+  display: block;
+  text-align: center;
+}
+.figure {
+  margin-bottom: -30px;
+}
+.figure-caption {
+  color: #fff;
+  position: relative;
+  bottom: 50px;
+  background: #750104;
+  padding: 10px 15px 10px 15px;
+  font-weight: 300;
+  font-size: 90%;
+}
+.cta {color: #fff;font-family: 'Lato', sans-serif;font-weight: 30;}
+.apoyo a{
+  color: #282828;
+  font-weight: 600;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+@media only screen and (max-width: 800px) {
+  #map{
+    height: 92%;
+  }
+  .header{
+    padding-top: 75%;
+  }
+  .intro p{
+    font-size: 4.2vw;
+    padding: 0px;
+    text-align: center;
+  }
+  h1{
+    font-size: 11vw;
+    text-align: center !important;
+    line-height: 5.5vh;
+  }
+  .pre{
+    font-size: 5vw;
+display: block;
+line-height: 5vw;
+margin-top: 10px;;
+  }
+  h3{
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  .prevencion p{
+    font-size: 1rem;
+  }
+
+  h2{
+    font-size: 2rem;
+  }
+  .header{
+    background-position: top center;
+    background-size: auto;
+  }
+  .cifra{
+    font-size: 15vw;
+  }
+  .texto{
+    font-size: 6vw;
+  }
+  .carousel-control-next, .carousel-control-prev{
+    margin: 0px -20px !important;
+    bottom: 50%;
+  }
+}
+/*.container-wrapper-genially{
+  background-color: #1e4980 !important;
+}*/
+
+
+
+/*indicador de carga*/
+*,*:after, *:before{
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/*#contenedor_carga{
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+  z-index: 10000;
+}
+#carga{
+  border: 15px solid #ccc;
+  border-top-color: #F4266A;
+  border-top-style: groove;
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-animation: girar 1.5s linear infinite;
+  -o-animation: girar 1.5s linear infinite;
+  animation: girar 1.5s linear infinite;
+}
+
+@keyframes girar{
+  from{transform: rotate(0deg);}
+  to {
+    transform: rotate(360deg);;
+  }
+}*/
+
+@media only screen and (max-width: 420px) {
+  p{
+    font-size:1.1rem;
+  }
+  .columna p{
+    font-size:1.1rem;
+  }
+  #reportaje h3{
+    font-size: 1.3rem;
+  }
+ .lead{
+  font-size: 4.7vw;
+  color: #6a6a6a;
+  text-shadow: none;
+  text-align: center;
+  line-height: 1.5rem;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  font-family: 'Lato';
+  width: 95%;
+ }
+ blockquote{
+   padding: 1rem 1rem;
+    text-align: left;
+   font-size: 1.1rem;
+   width: 90%;
+ }
+ blockquote:before{
+   left:47%;
+ }
+ .jumbotron{
+   padding-top: 100%;
+ }
+ .autor {
+  display: block;
+  }
+  .btn{
+    margin: 0 auto;
+    display: block;
+  }
+  header .btn{
+    display:inherit;
+  }
+  .intro{
+    line-height: 1.1rem;
+    font-size: 2.5vh;
+    padding: 0px 0px;
+  }
+  .mainmenu a{
+    font-size: 4.5vw;
+  }
+  nav#pointerNavigation{
+    cursor: auto !important;
+    overflow: scroll !important;
+  }
+  .figure{
+    margin-bottom: 0px;
+  }
+  .figure-caption{
+    bottom:20px;
+    font-size: 75%;
+    width: 80%;
+  }
+  footer p{
+    font-size: 2.1vh;;
+  }
+  .anexos img{
+    margin-bottom: 10px;
+  }
+  .anexos p{
+    font-size:1.1rem;
+  }
+  .leaflet-popup-content-wrapper, .leaflet-popup-tip{
+    width: 300px;
+  }
+  .hincha_de, .agresor, .arma, .lugar{
+    font-size: 1rem;
+  }
+  .tituloMapa{
+    position: inherit;
+    width: 100%;
+  }
+  .instrucciones {
+    background: #000000db;
+    position: relative;
+    z-index: -1;
+    bottom: 100%;
+    animation: blur 7s linear 0s 1 ;
+    -webkit-animation: blur 7s linear 0s 1 ;
+    -moz-animation: blur 7s linear 0s 1 ;
+    filter: blur(3px);
+    opacity: 0;
+  }
+  .instrucciones h3 {
+    color: #FFF;
+    font-family: 'Roboto Slab';
+    font-weight: 600;
+  }
+  .instrucciones P{
+    color:#fff;
+  }
+  @keyframes blur {
+    0% {
+      -webkit-filter: blur(0px);
+      -moz-filter: blur(0px);
+      -o-filter: blur(0px);
+      -ms-filter: blur(0px);
+      opacity: 1;
+      z-index: 9997;
+    }
+    90% {
+      -webkit-filter: blur(0px);
+      -moz-filter: blur(0px);
+      -o-filter: blur(0px);
+      -ms-filter: blur(0px);
+      opacity: 1;
+      z-index: 9997;
+    }
+    100%{
+      -webkit-filter: blur(3px);
+      -moz-filter: blur(3px);
+      -o-filter: blur(3px);
+      -ms-filter: blur(3px);
+      opacity: 0;
+      z-index: -1;
+    }
+  
+  }
+  #reportaje .anexo{
+    font-size: 1rem;
+  }
+  #midroga{
+    height: initial !important;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+  
+}
+
+.iframe-video {
+  margin-bottom: 20px;
+}
+
+.iframe-video iframe {
+  border: 5px groove #750104;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #750104;
+opacity: 0.6;
+  z-index: 2;
+}
